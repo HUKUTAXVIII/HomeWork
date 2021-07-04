@@ -29,6 +29,7 @@ namespace MediaPlayerProj
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.StopButton = new System.Windows.Forms.Button();
             this.PauseButton = new System.Windows.Forms.Button();
             this.PlayButton = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@ namespace MediaPlayerProj
             this.DragButton = new System.Windows.Forms.Button();
             this.PlayList = new System.Windows.Forms.ComboBox();
             this.NavigationLabel = new System.Windows.Forms.Label();
+            this.MusicTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MusicTrack)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@ namespace MediaPlayerProj
             this.StopButton.TabIndex = 0;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = false;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // PauseButton
             // 
@@ -64,6 +67,7 @@ namespace MediaPlayerProj
             this.PauseButton.TabIndex = 1;
             this.PauseButton.Text = "Pause";
             this.PauseButton.UseVisualStyleBackColor = false;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
             // 
             // PlayButton
             // 
@@ -75,6 +79,7 @@ namespace MediaPlayerProj
             this.PlayButton.TabIndex = 2;
             this.PlayButton.Text = "Play";
             this.PlayButton.UseVisualStyleBackColor = false;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // MusicBox
             // 
@@ -93,6 +98,7 @@ namespace MediaPlayerProj
             this.MusicTrack.Size = new System.Drawing.Size(342, 45);
             this.MusicTrack.TabIndex = 4;
             this.MusicTrack.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.MusicTrack.MouseCaptureChanged += new System.EventHandler(this.MusicTrack_MouseCaptureChanged);
             // 
             // AddButton
             // 
@@ -160,6 +166,11 @@ namespace MediaPlayerProj
             this.NavigationLabel.TabIndex = 10;
             this.NavigationLabel.Text = "Playlist:";
             // 
+            // MusicTimer
+            // 
+            this.MusicTimer.Enabled = true;
+            this.MusicTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +210,7 @@ namespace MediaPlayerProj
         private System.Windows.Forms.Button DragButton;
         private System.Windows.Forms.ComboBox PlayList;
         private System.Windows.Forms.Label NavigationLabel;
+        private System.Windows.Forms.Timer MusicTimer;
     }
 }
 
