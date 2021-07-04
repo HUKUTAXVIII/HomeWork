@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -23,15 +24,30 @@ namespace MediaPlayerProj
             InitializeComponent();
             this.Player = new WindowsMediaPlayer();
             this.Player.URL = "Rammstein - Links 2 3 4.mp3";
+            this.Player.controls.stop();
             //this.Player.controls.play();
 
-            
+            this.UpdatePlayList();
             
             
         }
 
-
-
+        private void UpdateMusicList() {
+            if (this.PlayList.SelectedItem != null)
+            {
+                Directory.GetFiles($"Music/{this.PlayList.SelectedItem}").ToList().ForEach((item) =>
+                {
+                    this.MusicBox.Items.Add(new FileInfo(item).Name);
+                });
+            }
+        }
+        private void UpdatePlayList() {
+            if (Directory.Exists("Music")) {
+                Directory.GetDirectories("Music/").ToList().ForEach((item)=> {
+                    this.PlayList.Items.Add(new DirectoryInfo(item).Name);
+                });
+            }
+        }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -115,8 +131,21 @@ namespace MediaPlayerProj
 
         private void MusicTrack_MouseCaptureChanged(object sender, EventArgs e)
         {
+            this.Player.controls.stop();
             this.Player.controls.currentPosition = (double)(this.MusicTrack.Value);
+            //this.Player.controls.play();
 
+        }
+
+        private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.UpdateMusicList();
+        }
+
+        private void MusicBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Player = new WindowsMediaPlayer();
+            this.Player.URL = $"Music/{this.PlayList.SelectedItem}/{this.MusicBox.SelectedItem}";
         }
     }
 }

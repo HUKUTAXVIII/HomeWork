@@ -89,6 +89,7 @@ namespace MediaPlayerProj
             this.MusicBox.Name = "MusicBox";
             this.MusicBox.Size = new System.Drawing.Size(572, 208);
             this.MusicBox.TabIndex = 3;
+            this.MusicBox.SelectedIndexChanged += new System.EventHandler(this.MusicBox_SelectedIndexChanged);
             // 
             // MusicTrack
             // 
@@ -155,6 +156,7 @@ namespace MediaPlayerProj
             this.PlayList.Name = "PlayList";
             this.PlayList.Size = new System.Drawing.Size(180, 21);
             this.PlayList.TabIndex = 9;
+            this.PlayList.SelectedIndexChanged += new System.EventHandler(this.PlayList_SelectedIndexChanged);
             // 
             // NavigationLabel
             // 
