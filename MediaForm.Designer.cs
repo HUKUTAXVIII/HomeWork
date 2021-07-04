@@ -115,6 +115,7 @@ namespace MediaPlayerProj
             this.CloseButton.TabIndex = 6;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // HideButton
             // 
@@ -126,6 +127,7 @@ namespace MediaPlayerProj
             this.HideButton.TabIndex = 7;
             this.HideButton.Text = "Hide";
             this.HideButton.UseVisualStyleBackColor = false;
+            this.HideButton.Click += new System.EventHandler(this.HideButton_Click);
             // 
             // DragButton
             // 
@@ -137,6 +139,8 @@ namespace MediaPlayerProj
             this.DragButton.TabIndex = 8;
             this.DragButton.Text = "Drag";
             this.DragButton.UseVisualStyleBackColor = false;
+            this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
+            this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 
             // PlayList
             // 
