@@ -125,8 +125,10 @@ namespace MediaPlayerProj
         {
             if (this.Player != null)
             {
+                this.SongDurationLabel.Text = this.Player.currentMedia.durationString;
                 this.MusicTrack.Maximum = (int)this.Player.currentMedia.duration+1;
                 this.MusicTrack.Value = (int)(this.Player.controls.currentPosition);
+                this.Player.settings.volume = this.VolumeBar.Value;
             }
         }
 
@@ -148,11 +150,13 @@ namespace MediaPlayerProj
             this.Player.controls.stop();
             this.Player = new WindowsMediaPlayer();
             this.Player.URL = $"Music/{this.PlayList.SelectedItem}/{this.MusicBox.SelectedItem}";
+            this.SongNameLabel.Text = this.MusicBox.SelectedItem.ToString();
+            this.SongDurationLabel.Text = this.Player.currentMedia.durationString;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            using (MediaFileManager form = new MediaFileManager(this.PlayList.SelectedItem.ToString())) {
+            using (MediaFileManager form = new MediaFileManager(this.PlayList.SelectedItem == null?"": this.PlayList.SelectedItem.ToString())) {
                 form.ShowDialog();
                 this.UpdatePlayList();
             }

@@ -42,7 +42,11 @@ namespace MediaPlayerProj
             this.PlayList = new System.Windows.Forms.ComboBox();
             this.NavigationLabel = new System.Windows.Forms.Label();
             this.MusicTimer = new System.Windows.Forms.Timer(this.components);
+            this.SongNameLabel = new System.Windows.Forms.Label();
+            this.SongDurationLabel = new System.Windows.Forms.Label();
+            this.VolumeBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.MusicTrack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.SuspendLayout();
             // 
             // StopButton
@@ -93,7 +97,7 @@ namespace MediaPlayerProj
             // 
             // MusicTrack
             // 
-            this.MusicTrack.BackColor = System.Drawing.Color.Black;
+            this.MusicTrack.BackColor = System.Drawing.Color.DimGray;
             this.MusicTrack.Location = new System.Drawing.Point(56, 82);
             this.MusicTrack.Name = "MusicTrack";
             this.MusicTrack.Size = new System.Drawing.Size(342, 45);
@@ -174,12 +178,42 @@ namespace MediaPlayerProj
             this.MusicTimer.Enabled = true;
             this.MusicTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // SongNameLabel
+            // 
+            this.SongNameLabel.AutoSize = true;
+            this.SongNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SongNameLabel.Location = new System.Drawing.Point(52, 40);
+            this.SongNameLabel.Name = "SongNameLabel";
+            this.SongNameLabel.Size = new System.Drawing.Size(45, 24);
+            this.SongNameLabel.TabIndex = 11;
+            this.SongNameLabel.Text = "Title";
+            // 
+            // SongDurationLabel
+            // 
+            this.SongDurationLabel.AutoSize = true;
+            this.SongDurationLabel.Location = new System.Drawing.Point(363, 114);
+            this.SongDurationLabel.Name = "SongDurationLabel";
+            this.SongDurationLabel.Size = new System.Drawing.Size(28, 13);
+            this.SongDurationLabel.TabIndex = 12;
+            this.SongDurationLabel.Text = "0:00";
+            // 
+            // VolumeBar
+            // 
+            this.VolumeBar.Location = new System.Drawing.Point(397, 82);
+            this.VolumeBar.Maximum = 100;
+            this.VolumeBar.Name = "VolumeBar";
+            this.VolumeBar.Size = new System.Drawing.Size(104, 45);
+            this.VolumeBar.TabIndex = 13;
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(596, 491);
+            this.Controls.Add(this.VolumeBar);
+            this.Controls.Add(this.SongDurationLabel);
+            this.Controls.Add(this.SongNameLabel);
             this.Controls.Add(this.NavigationLabel);
             this.Controls.Add(this.PlayList);
             this.Controls.Add(this.DragButton);
@@ -195,6 +229,7 @@ namespace MediaPlayerProj
             this.Name = "MediaForm";
             this.Text = "Media Player";
             ((System.ComponentModel.ISupportInitialize)(this.MusicTrack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +249,9 @@ namespace MediaPlayerProj
         private System.Windows.Forms.ComboBox PlayList;
         private System.Windows.Forms.Label NavigationLabel;
         private System.Windows.Forms.Timer MusicTimer;
+        private System.Windows.Forms.Label SongNameLabel;
+        private System.Windows.Forms.Label SongDurationLabel;
+        private System.Windows.Forms.TrackBar VolumeBar;
     }
 }
 
