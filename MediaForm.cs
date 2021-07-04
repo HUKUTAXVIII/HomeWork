@@ -26,6 +26,7 @@ namespace MediaPlayerProj
             this.Player.URL = "Rammstein - Links 2 3 4.mp3";
             this.Player.controls.stop();
             //this.Player.controls.play();
+            //this.Player.settings.volume;
 
             this.UpdatePlayList();
             

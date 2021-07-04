@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MediaFileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MediaFileManager.Designer.cs">
+      <DependentUpon>MediaFileManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="MediaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MediaFileManager.resx">
+      <DependentUpon>MediaFileManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MediaForm.resx">
       <DependentUpon>MediaForm.cs</DependentUpon>
     </EmbeddedResource>
