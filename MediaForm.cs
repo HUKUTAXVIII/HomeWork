@@ -25,8 +25,6 @@ namespace MediaPlayerProj
             this.Player = new WindowsMediaPlayer();
             this.Player.URL = "Rammstein - Links 2 3 4.mp3";
             this.Player.controls.stop();
-            //this.Player.controls.play();
-            //this.Player.settings.volume;
 
             this.UpdatePlayList();
             
@@ -34,6 +32,7 @@ namespace MediaPlayerProj
         }
 
         private void UpdateMusicList() {
+            this.MusicBox.Items.Clear();
             if (this.PlayList.SelectedItem != null)
             {
                 Directory.GetFiles($"Music/{this.PlayList.SelectedItem}").ToList().ForEach((item) =>
@@ -43,6 +42,7 @@ namespace MediaPlayerProj
             }
         }
         private void UpdatePlayList() {
+            this.PlayList.Items.Clear();
             if (Directory.Exists("Music")) {
                 Directory.GetDirectories("Music/").ToList().ForEach((item)=> {
                     this.PlayList.Items.Add(new DirectoryInfo(item).Name);
@@ -145,8 +145,17 @@ namespace MediaPlayerProj
 
         private void MusicBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.Player.controls.stop();
             this.Player = new WindowsMediaPlayer();
             this.Player.URL = $"Music/{this.PlayList.SelectedItem}/{this.MusicBox.SelectedItem}";
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            using (MediaFileManager form = new MediaFileManager(this.PlayList.SelectedItem.ToString())) {
+                form.ShowDialog();
+                this.UpdatePlayList();
+            }
         }
     }
 }

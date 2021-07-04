@@ -56,15 +56,18 @@ namespace MediaPlayerProj
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = false;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // SelectFileButton
             // 
+            this.SelectFileButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.SelectFileButton.Location = new System.Drawing.Point(12, 46);
             this.SelectFileButton.Name = "SelectFileButton";
             this.SelectFileButton.Size = new System.Drawing.Size(75, 23);
             this.SelectFileButton.TabIndex = 3;
             this.SelectFileButton.Text = "Add File";
-            this.SelectFileButton.UseVisualStyleBackColor = true;
+            this.SelectFileButton.UseVisualStyleBackColor = false;
+            this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
             // 
             // TrackBox
             // 
